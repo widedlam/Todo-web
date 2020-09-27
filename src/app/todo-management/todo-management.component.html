@@ -1,0 +1,43 @@
+<div class="panel panel-default">  
+    <div class="panel-heading">  
+        <h1 style="text-align: center">Todos</h1><br>           
+      </div>  
+      
+     <h1 style="text-align:center" [hidden]="!(todos?.length == 0)">Todo's List is empty </h1>
+    <div class="panel-body"  [hidden]="todos?.length == 0">  
+        <table  class="table table-hover table-sm"  >  
+            <thead class="thead-light">  
+                <tr>  
+                    <th>Todo Id</th>  
+                    <th>Todo description</th>    
+                    <th>Actions</th>  
+                </tr>  
+            </thead>  
+            <tbody>  
+                 <tr *ngFor="let todo of todos ">  
+                    <td>{{todo.id}}</td>  
+                    <td>{{todo.description}}</td>   
+                    <td><button (click)="deleteTodo(todo.id)" class='btn btn-danger'>Delete</button>&nbsp;  
+                        <button routerLink="{{todo.id}}" class='btn btn-info'>Details</button> 
+                      </td>  
+                  </tr>   
+            </tbody><br>  
+        </table>  
+    </div>  
+    <button type="button" class="btn btn-secondary" (click)="collapse()">Add more todos</button>
+    <div  class="row">  
+    <div class="col-sm-4"></div>  
+    <div class="col-sm-4" >  
+    <div  *ngIf="isCollapsed" > 
+    <form [formGroup]="todoForm" (ngSubmit)="addTodo()">
+    <input type="hidden" class="form-control"  >
+    <div class="form-group"><label for="name">Description</label>
+    <input type="text" class="form-control" formControlName="description"  >
+    </div> 
+    <button type = "submit" class='btn btn-success'>Add</button>
+    </form>    
+  </div>   
+  </div>
+  </div>
+  </div>
+ 

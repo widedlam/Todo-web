@@ -1,0 +1,35 @@
+<h3 style="text-align:center">Todo Details</h3>  
+<div class="row">  
+  <div class="col-sm-4"></div>  
+  <div class="col-sm-4" >  
+    <div  style="width: 400px;">  
+      <form  [formGroup]="todoForm" #todo (ngSubmit)="updateTodo(todo)" >  
+            <div >  
+                    <label for="name"> Id</label>  
+                    <input type="text" class="form-control" formControlName="id"  data-toggle="tooltip"  
+                       data-placement="right" disabled >  
+                    
+                </div>  
+          <div >  
+              <label for="name"> Description</label>  
+              <input type="text" class="form-control" formControlName="description"    
+                 data-placement="right" placeholder="Enter Todo's description " >  
+          </div>  
+          <br>
+          <button type="submit"  class="btn btn-success">Update</button> &nbsp;
+          <button type="submit" routerLink="/ManageTodo" class="btn btn-info">Go to List</button>
+          </form>
+          </div>
+          </div>
+          </div>
+          <br>
+          <div class="row" [hidden]="!isUpdated">  
+                <div class="col-sm-4"></div>  
+                <div class="col-sm-4">  
+                        <div class="alert alert-info alert-dismissible">  
+                                <button type="button" class="close" data-dismiss="alert">×</button>  
+                                <strong>Todo Data Updated</strong>  
+                        </div>  
+                </div>  
+                <div class="col-sm-4"></div>  
+        </div>       
