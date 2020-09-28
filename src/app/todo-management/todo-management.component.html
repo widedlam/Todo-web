@@ -30,7 +30,6 @@
     <div class="col-sm-4" >  
     <div  *ngIf="isCollapsed" > 
     <form [formGroup]="todoForm" (ngSubmit)="addTodo()">
-    <input type="hidden" class="form-control"  >
     <div class="form-group"><label for="name">Description</label>
     <input type="text" class="form-control" formControlName="description"  >
     </div> 
